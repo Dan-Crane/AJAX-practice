@@ -13,13 +13,90 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <h1 class="header col-12 text-center mt-3">AJAX practice</h1>
-        <div class="col-12 d-flex mt-3">
-          <button class="btn btn-outline-primary ml-auto mr-auto btn-get">Get users</button>
+    <h1 class="text-center mt-4">AJAX practice</h1>
+    <div class="form-section mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col col-8 mx-auto">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Enter your information</h5>
+
+                <form name="post-user">
+                  <fieldset class="form-group">
+                    <label for="name">Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      name="name"
+                    />
+                  </fieldset>
+                  <fieldset class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      name="email"
+                    />
+                  </fieldset>
+                  <fieldset class="form-group">
+                    <label for="username">Username</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="username"
+                      name="username"
+                    />
+                  </fieldset>
+                  <fieldset class="form-group">
+                    <label for="phone">Phone</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="phone"
+                      name="phone"
+                    />
+                  </fieldset>
+                  <fieldset class="form-group">
+                    <label for="website">Website</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="website"
+                      name="website"
+                    />
+                  </fieldset>
+                  <button type="submit" class="btn btn-primary">
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <ul class="list-group col-8 ml-auto mr-auto ul"></ul>
+    </div>
+
+    <div class="form-section mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col col-8 mx-auto">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title text-center">Get all users</h5>
+                <button
+                  class="card-title text-center btn btn-outline-primary mx-auto d-block btn-get"
+                >
+                  Get users
+                </button>
+                <ul class="list-group col-8 mx-auto mt-3 ul"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="app.js"></script>

@@ -1,6 +1,12 @@
 //! UI
 const btnGet = document.querySelector(".btn-get");
 const ul = document.querySelector(".ul");
+const form = document.forms["post-user"];
+const name = form.elements["name"];
+const email = form.elements["email"];
+const username = form.elements["username"];
+const phone = form.elements["phone"];
+const website = form.elements["website"];
 
 //! events
 btnGet.addEventListener("click", (e) => {

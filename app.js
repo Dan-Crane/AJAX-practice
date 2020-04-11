@@ -7,19 +7,37 @@ const email = form.elements["email"];
 const username = form.elements["username"];
 const phone = form.elements["phone"];
 const website = form.elements["website"];
+const btnSubmit = document.querySelector(".btn-submit");
 
 //! events
 btnGet.addEventListener("click", (e) => {
   getUsers(renderAllUsers);
 });
 ul.addEventListener("click", showDetalInfo);
+btnSubmit.addEventListener("click", (e) => {
+  e.preventDefault();
+  const newUser = {
+    name: name.value,
+    email: email.value,
+    username: username.value,
+    phone: phone.value,
+    website: website.value,
+  };
+
+  postUser(newUser, (allUsers) => {
+    const newPostUser = createUserElemet(allUsers);
+
+    ul.insertAdjacentElement("afterbegin", newPostUser);
+  });
+
+  form.reset();
+});
 
 function getUsers(cb) {
   const xhr = new XMLHttpRequest();
   xhr.open("get", "https://jsonplaceholder.typicode.com/users");
   xhr.addEventListener("load", (e) => {
     const allUsers = JSON.parse(xhr.responseText);
-    console.log(allUsers);
     cb(allUsers);
   });
 
@@ -28,6 +46,23 @@ function getUsers(cb) {
   });
 
   xhr.send();
+}
+
+function postUser(body, cb) {
+  const xhr = new XMLHttpRequest();
+  xhr.open("post", "https://jsonplaceholder.typicode.com/users");
+  xhr.addEventListener("load", (e) => {
+    const allUsers = JSON.parse(xhr.responseText);
+    cb(allUsers);
+  });
+
+  xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+  xhr.addEventListener("error", (e) => {
+    console.log("error");
+  });
+
+  xhr.send(JSON.stringify(body));
 }
 
 function renderAllUsers(allUsers) {

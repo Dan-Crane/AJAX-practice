@@ -9,6 +9,7 @@ const phone = form.elements["phone"];
 const website = form.elements["website"];
 const btnSubmit = document.querySelector(".btn-submit");
 
+
 //! events
 btnGet.addEventListener("click", (e) => {
   getUsers(renderAllUsers);
